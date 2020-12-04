@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!-- Vewport -->
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <!-- Material Icons -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- Font -->
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Play:wght@400;700&display=swap" rel="stylesheet">
+        <!-- owlcarousel.css -->
+        <link rel="stylesheet" href="./css/owl.carousel.css">
+        <link rel="stylesheet" href="./css/owl.theme.default.css">
+        <!-- script -->
+        <script src="./js/jquery.js"></script>
+        <script src="./js/owl.carousel.min.js"></script>
+        <!-- style -->
+        <link rel="stylesheet" href="./style.css">
+        <link rel="stylesheet" href="./css/reset.css">
+
+    </head>
+    <script>
+        //헤더 검색 버튼
+        $(function(){
+            $(".subMenu_search").click(function(e){
+                e.preventDefault();
+                $(".Search").slideToggle(300);
+            })
+        })
+
+        //메뉴 드롭다운 스크립트
+        $(function(){
+            $(".subMenu_menu").click(function(e){
+                e.preventDefault();
+                $(this).css("display","none");
+                $(".subMenu_close").css("display","block");
+                
+                $(".menu_dropDown_wrap").slideToggle(300);
+            })
+
+            $(".subMenu_close").click(function(e){
+                $(this).css("display","none");
+                $(".subMenu_menu").css("display","block");
+                
+                $(".menu_dropDown_wrap").css("display","none");
+            })
+        })
+
+        //메뉴 드롭다운 안에 자식 드롭다운 스크립트
+        $(function(){
+            $(".menu_sub_dropDown").click(function() {
+                $(this).next().slideToggle(200);
+                $(this).parent().siblings(".menu_dropDown_list").children(".menu_subList").slideUp(200);
+
+            });
+        })
+        
+        //상위 이동 
+        $(function(){
+            $(".topBtn").click(function(){
+                $("html,body").animate({
+                    scrollTop : 0
+                }, 500)
+            })
+            
+            $(window).scroll(function(e){
+                if($(this).scrollTop() == 0) {
+                    $(".topBtn").fadeOut();
+                }
+                else {
+                    $(".topBtn").fadeIn();
+                }  
+            })
+        })
+
+        //배너 슬라이드 
+        $(function(){
+            $('#banner .owl-carousel').owlCarousel({
+                loop:true,
+                margin:0,
+                nav:true,
+                dots:true,
+                autoplay:true,
+                autoplayTimeout:5000,
+                responsiveClass:true,
+                responsive:{
+                    0:{
+                        items:1,
+                    },
+                    600:{
+                        items:1,
+                    },
+                    1000:{
+                        items:1,
+                    }
+                }
+            })
+        })
+        
+        //sec1 슬라이드
+        $(function(){
+            $('.sec1_img .owl-carousel').owlCarousel({
+                loop:true,
+                margin:20,
+                nav:true,
+                dots:false,
+                autoplay:true,
+                URLhashListener:true,
+                autoplayHoverPause:true,
+                startPosition: 'URLHash',
+                autoplayTimeout:5000,
+                responsiveClass:true,
+                responsive:{
+                    0:{
+                        items:1,
+                        autoplay:true,
+                        autoplayTimeout:5000,
+                        
+                    },
+                    600:{
+                        items:2,
+                        autoplay:true,
+                        autoplayTimeout:5000,
+                        
+                    },
+                    1025:{
+                        items:3,
+                    }
+                }
+            })
+        })
+        
+        //sec3 슬라이드 (데스크탑)
+        $(function(){
+            $('.sec3_img .owl-carousel').owlCarousel({
+                center: true,
+                items:2,
+                loop:true,
+                nav:true,
+                margin:40,
+                dots:false,
+                autoplay:true,
+                autoplayTimeout:5000,
+                responsive:{
+                    0:{
+                        items:1,
+                        
+                    },
+                    600:{
+                        items:2,
+                        
+                    },
+                    1020:{
+                        items:4
+                    }
+                }
+            });
+        }); 
+        
+        //sec5 슬라이드
+        $(function(){
+            $('.sec5_img .owl-carousel').owlCarousel({
+                loop:true,
+                margin:20,
+                nav:false,
+                dots:true,
+                autoplay:true,
+                URLhashListener:true,
+                autoplayHoverPause:true,
+                startPosition: 'URLHash',
+                autoplayTimeout:5000,
+                responsiveClass:true,
+                responsive:{
+                    0:{
+                        items:1,
+                        
+                    },
+                    600:{
+                        items:2,
+                    },
+                    1280:{
+                        items:3,
+                    },
+                }
+            })
+        })
+        
+    </script>
+    <body>
+        <!--==================== 헤더영역 ====================-->
+        <header id="header">
+            <div class="scrolltop">
+                <button class="topBtn">
+                    <span class="material-icons">arrow_upward</span>
+                </button>
+            </div>
+            <h1 class="logo">
+                <a href="./index.html">
+                    <img src="./img/hdec_logo.png" alt="현대건설 로고 이미지">
+                </a>
+            </h1>
+            <div class="subMenu">
+                <a href="#" class="subMenu_login">
+                    <p>한국어</p>
+                </a>
+                <div class="subMenu_clearLine"></div>
+                <a href="#" class="subMenu_search">
+                    <i class="material-icons">search</i>
+                </a>
+                <a href="#" class="subMenu_menu">
+                    <i class="material-icons">apps</i>
+                </a>
+            </div>
+            <nav id="nav">
+                <div class="gnb">
+                    <ul>
+                        <li><a href="./about.html">회사소개</a>
+                            <ul>
+                                <li><a href="./about.html">기업이념</a></li>
+                                <li><a href="./history.html">회사연혁</a></li>
+                                <li><a href="#">그룹소개</a></li>
+                                <li><a href="#">오시는길</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">사업소개</a>
+                            <ul>
+                                <li><a href="#">건설이야기</a></li>
+                                <li><a href="#">토목사업</a></li>
+                                <li><a href="#">건축사업</a></li>
+                                <li><a href="#">주택사업</a></li>
+                                <li><a href="#">플랜트사업</a></li>
+                                <li><a href="#">에너지사업</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">혁신기술</a>
+                            <ul>
+                                <li><a href="#">글로벌 기술협력</a></li>
+                                <li><a href="#">연구성과</a></li>
+                                <li><a href="#">기술공모전</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">인재채용</a>
+                            <ul>
+                                <li><a href="#">채용공고</a></li>
+                                <li><a href="#">현대건설인</a></li>
+                                <li><a href="#">직무소개</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="./FAQ.html">고객지원</a>
+                            <ul>
+                                <li><a href="./FAQ.html">FAQ</a></li>
+                                <li><a href="./notice.html">공지사항</a></li>
+                            </ul>
+                        </li> 
+                    </ul> 
+                </div>
+                <div></div>
+            </nav>
+        </header>
+        <!-- 헤더 검색 버튼 -->
+        <div class="Search" style="display: none">
+            <div class="SearchBox">
+                <input type="text" placeholder="검색어를 입력하세요." title="검색어를 입력하세요.">
+                <a href="#" class="SearchBox_btn">
+                    <span class="material-icons">east</span>
+                </a>
+            </div>
+        </div>
+        <!-- 메뉴 드롭다운 -->
+        <div class="menu_dropDown_wrap">
+            <ul class="menu_dropDown">
+                <li class="menu_dropDown_list">
+                    <div class="menu_sub_dropDown">
+                        <h2 class="menu_sub_title">
+                            <a href="./index.html">HOME</a>
+                        </h2>
+                    </div>
+                </li>
+                <li class="menu_dropDown_list">
+                    <div class="menu_sub_dropDown">
+                        <h2 class="menu_sub_title">회사소개</h2>
+                    </div>
+                    <ul class="menu_subList">
+                        <li class="menu_subList_list">
+                            <a href="./about.html">기업이념</a>
+                        </li>
+                        <li class="menu_subList_list">
+                            <a href="./history.html">회사연혁</a>
+                        </li>
+                        <li class="menu_subList_list">
+                            <a href="#">그룹소개</a>
+                        </li>
+                        <li class="menu_subList_list">
+                            <a href="#">오시는길</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu_dropDown_list">
+                    <div class="menu_sub_dropDown">
+                        <h2 class="menu_sub_title">사업소개</h2>
+                    </div>
+                    <ul class="menu_subList">
+                        <li class="menu_subList_list">
+                            <a href="#">건설이야기</a>
+                        </li>
+                        <li class="menu_subList_list">
+                            <a href="#">토목사업</a>
+                        </li>
+                        <li class="menu_subList_list">
+                            <a href="#">건축사업</a>
+                        </li>
+                        <li class="menu_subList_list">
+                            <a href="#">주택산업</a>
+                        </li>
+                        <li class="menu_subList_list">
+                            <a href="#">플랜트사업</a>
+                        </li>
+                        <li class="menu_subList_list">
+                            <a href="#">에너지사업</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu_dropDown_list">
+                    <div class="menu_sub_dropDown">
+                        <h2 class="menu_sub_title">혁신기술</h2>
+                    </div>
+                    <ul class="menu_subList">
+                        <li class="menu_subList_list">
+                            <a href="#">글로벌기술협력</a>
+                        </li>
+                        <li class="menu_subList_list">
+                            <a href="#">연구성과</a>
+                        </li>
+                        <li class="menu_subList_list">
+                            <a href="#">기술공모전</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu_dropDown_list">
+                    <div class="menu_sub_dropDown">
+                        <h2 class="menu_sub_title">인재채용</h2>
+                    </div>
+                    <ul class="menu_subList">
+                        <li class="menu_subList_list">
+                            <a href="#">채용공고</a>
+                        </li>
+                        <li class="menu_subList_list">
+                            <a href="#">현대건설인</a>
+                        </li>
+                        <li class="menu_subList_list">
+                            <a href="#">직무소개</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu_dropDown_list">
+                    <div class="menu_sub_dropDown">
+                        <h2 class="menu_sub_title">고객지원</h2>
+                    </div>
+                    <ul class="menu_subList">
+                        <li class="menu_subList_list">
+                            <a href="./FAQ.html">FAQ</a>
+                        </li>
+                        <li class="menu_subList_list">
+                            <a href="./notice.html">공지사항</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <a href="#" class="subMenu_close">
+                <span class="material-icons">clear</span>
+            </a>
+        </div>
+    
+        <!--==================== 배너영역 ====================-->
+        <section id="banner">
+            <h2 class="ir_su">배너영역</h2>
+            <div class="owl-carousel">
+                <div class="banner_bg item" style="background-image: url(img/banner_01.png);"></div> 
+                <div class="banner_bg item" style="background-image: url(img/banner_02.png);"></div> 
+                <div class="banner_bg item" style="background-image: url(img/banner_03.png);"></div> 
+            </div>
+            <div class="txt">
+                <div class="txtTitle">
+                    <p class="txtTitle_top">WE BUILD TOMORROW</p>
+                    <p class="txtTitle_bottom">WE BUILD TOMORROW</p>
+                </div>
+                <div class="txtSub">
+                    현대건설은 사회에 공헌하는 발전된<br>내일의 모습을 창조하는 기업이 되겠습니다.</div>
+                <div class="txtBtn">
+                    <a href="#">
+                        <span class="material-icons">arrow_forward</span>
+                    </a>
+                </div>
+            </div>
+            <div class="scrollDown">
+                <p>Scroll Down</p>
+                <div></div>
+            </div>
+        </section>
+        <!--==================== sec1 ====================-->
+        <div id="section1"> 
+            <div class="sec1">
+                <h2 class="ir_su">섹션1</h2>
+                <div class="sec1_txt">
+                    <p class="sec1_tit_txt">Our Business</p>
+                    <p class="sec1_sub_txt">고부가가치 건설의 주역으로서 건설 역사의 새 장을 열겠습니다</p>
+                </div>
+                <div class="sec1_img">
+                    <div class="owl-carousel owl-theme">
+                        <figure class="item">
+                            <a href="#">
+                                <img src="./img/sec1_img01.png" alt="이미지">
+                                <figcaption class="texts">
+                                    <p class="titText">건설이야기</p>
+                                    <p class="topText">CONSTRUCTION STORY</p>
+                                    <p class="bottomText">현대건설이 재미있는 건설이야기를 시작합니다.</p>
+                                </figcaption>
+                            </a>
+                        </figure>
+                        <figure class="item">
+                            <a href="#">
+                                <img src="./img/sec1_img02.png" alt="이미지">
+                                <figcaption class="texts">
+                                    <p class="topText">Energy Works</p>
+                                    <p class="bottomText">에너지사업</p>
+                                </figcaption>
+                            </a>
+                        </figure>
+                        <figure class="item">
+                            <a href="#">
+                                <img src="./img/sec1_img03.png" alt="이미지">
+                                <figcaption class="texts">
+                                    <p class="topText">Plant Works</p>
+                                    <p class="bottomText">플랜트사업</p>
+                                </figcaption>
+                            </a>
+                        </figure>
+                        <figure class="item">
+                            <a href="#">
+                                <img src="./img/sec1_img04.png" alt="이미지">
+                                <figcaption class="texts">
+                                    <p class="topText">Infrastructure Works</p>
+                                    <p class="bottomText">토목사업</p>
+                                </figcaption>
+                            </a>
+                        </figure>
+                        <figure class="item">
+                            <a href="#">
+                                <img src="./img/sec1_img05.png" alt="이미지">
+                                <figcaption class="texts">
+                                    <p class="topText">Housing Works</p>
+                                    <p class="bottomText">주택사업</p>
+                                </figcaption>
+                            </a>
+                        </figure>
+                        <figure class="item">
+                            <a href="#">
+                                <img src="./img/sec1_img06.png" alt="이미지">
+                                <figcaption class="texts">
+                                    <p class="topText">Building Works</p>
+                                    <p class="bottomText">건축사업</p>
+                                </figcaption>
+                            </a>
+                        </figure>
+                    </div>
+                </div> 
+            </div>
+        </div>    
+            
+        <!--==================== sec2 ====================-->
+        <div id="section2">
+            <div class="sec2">
+                <h2 class="ir_su">섹션2</h2>
+                <figure>
+                    <a href="#">
+                        <img src="./img/sec2_img01.png" alt="이미지">
+                        <figcaption class="sec2_texts">
+                        <p class="sec2_tit_txt">글로벌기술협력</p>
+                        <p class="sec2_sub_txt">현대건설은 핵심기술 개발과 연구개발 기반 사업창출이라는<br>목표 아래 전세계 유수기관과 협력관계를 구축</p>
+                        <a href="#" class="sec2_txt_btns">
+                            <p class="">바로가기
+                            <span class="material-icons">
+                            arrow_forward</span></p>
+                        </a>
+                    </figcaption>
+                    </a>
+                </figure>
+                <figure>
+                    <a href="#">
+                        <img src="./img/sec2_img02.png" alt="이미지">
+                        <figcaption class="sec2_texts">
+                        <p class="sec2_tit_txt">연구분야</p>
+                        <p class="sec2_sub_txt">현대건설 프로젝트의 입찰 단계에서부터 차별화 기술을<br>제공해 기술 경쟁력을 제공하고 있습니다.</p>
+                        <a href="#" class="sec2_txt_btns">
+                            <p class="">바로가기
+                            <span class="material-icons">
+                            arrow_forward</span></p>
+                        </a>
+                    </figcaption>
+                    </a>
+                </figure>
+                <figure>
+                    <a href="#">
+                        <img src="./img/sec2_img03.png" alt="이미지">
+                        <figcaption class="sec2_texts">
+                        <p class="sec2_tit_txt">기술공모전</p>
+                        <p class="sec2_sub_txt">전 세계 건설현장에 여러분의 기술이 실현되는 기회 여러분의<br>기술력으로 글로벌 건설시장에 도전해 보세요.</p>
+                        <a href="#" class="sec2_txt_btns">
+                            <p class="">바로가기
+                            <span class="material-icons">
+                            arrow_forward</span></p>
+                        </a>
+                    </figcaption>
+                    </a>
+                </figure>
+            </div>
+        </div> 
+        
+        <!--==================== sec3 ====================-->
+        <div id="section3"> 
+            <div class="sec3">
+                <h2 class="ir_su">섹션3</h2>
+                <div class="sec3_txt">
+                    <p class="sec3_tit_txt">Management</p>
+                    <p class="sec3_sub_txt">현대건설은 세계 건설시장을 선도하고 있습니다</p>
+                </div>
+                <div class="sec3_img">
+                    <div class="owl-carousel owl-theme">
+                        <figure class="item">
+                            <a href="#">
+                                <img src="./img/sec3_img01.png" alt="이미지">
+                                <figcaption class="texts">
+                                    <p class="topText">상생경영</p>
+                                    <p class="bottomText">체계적인 협력업체 관리로 상생의 길을 만들어갑니다.</p>
+                                </figcaption>
+                            </a>
+                        </figure>
+                        <figure class="item">
+                            <a href="#">
+                                <img src="./img/sec3_img02.png" alt="이미지">
+                                <figcaption class="texts">
+                                    <p class="topText">글로벌위상</p>
+                                    <p class="bottomText">현대건설은 세계 건설시장을 선도하고 있습니다..</p>
+                                </figcaption>
+                            </a>
+                        </figure>
+                        <figure class="item">
+                            <a href="#">
+                                <img src="./img/sec3_img03.png" alt="이미지">
+                                <figcaption class="texts">
+                                    <p class="topText">품질경영</p>
+                                    <p class="bottomText">완벽한 품질로 고객 만족을 실현합니다.</p>
+                                </figcaption>
+                            </a>
+                        </figure>
+                        <figure class="item">
+                            <a href="#">
+                                <img src="./img/sec3_img04.png" alt="이미지">
+                                <figcaption class="texts">
+                                    <p class="topText">공정경영</p>
+                                    <p class="bottomText">공정거래질서 준수를 통해 기업경쟁력을 강화합니다</p>
+                                </figcaption>
+                            </a>
+                        </figure>
+                        <figure class="item">
+                            <a href="#">
+                                <img src="./img/sec3_img05.png" alt="이미지">
+                                <figcaption class="texts">
+                                    <p class="topText">안전환경경영</p>
+                                    <p class="bottomText">자연과 인간의 조화를 최우선으로 추구하겠습니다</p>
+                                </figcaption>
+                            </a>
+                        </figure>
+                    </div>
+                </div> 
+                <a href="#" class="sec3_txt_btns">
+                    <p class="">자세히보기
+                    <span class="material-icons">
+                    arrow_forward</span></p>
+                </a>
+            </div>
+        </div>  
+        
+        <!--==================== sec4 ====================-->
+        <div id="section4"> 
+            <div class="sec4">
+                <h2 class="ir_su">섹션4</h2>
+                <div class="sec4_txt">
+                    <p class="sec4_tit_txt">Construction Story</p>
+                    <p class="sec4_sub_txt">현대건설이 재미 있는 건설 이야기를 시작합니다</p>
+                </div>
+                <div class="sec4_img">
+                    <img src="./img/sec4_img_m.png" class="sec4_img_m" alt="모바일이미지">
+                    <img src="./img/sec4_img.png" class="sec4_img_d" alt="데스크탑이미지">
+                    <div class="sec4_img_text">
+                        <p>건설이야기 #12_현대건설의 위해한 도전!<br>ep.2 쿠웨이트의 미래를 여는 주역들</p>
+                    </div>
+                    <a href="#" class="sec4_img_btns">
+                        <p>홍보 동영상 바로가기</p>    
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!--==================== sec5 ====================-->
+        <div id="section5"> 
+            <div class="sec5">
+                <h2 class="ir_su">섹션5</h2>
+                <div class="sec5_txt">
+                    <p class="sec5_tit_txt">HDEC issue</p>
+                    <p class="sec5_sub_txt">현대건설의 최신 소식을 가장 빠르게 전해드립니다</p>
+                </div>
+                <div class="sec5_img">
+                    <div class="owl-carousel owl-theme">
+                        <figure class="item">
+                            <a href="#">
+                                <img src="./img/sec5_img01.png" alt="이미지">
+                                <figcaption class="sec5_img_texts">
+                                    <p class="sec5_img_titText">보도기사</p>
+                                    <p class="sec5_img_topText">현대건설, 지하주차장 내 건식세차공....</p>
+                                    <p class="sec5_img_bottomText">“현대건설이 단지 내 지하주차장에 건식 세차공간 ‘H 오토존’을 도입한다. 고객들은 스마트폰에 설치....”</p>
+                                    <p class="sec5_img_left">20.11.30</p>
+                                    <p class="sec5_img_right">1276</p>
+                                    <span class="sec5_img_icon material-icons">visibility</span> 
+                                </figcaption>
+                            </a>
+                        </figure>
+                        <figure class="item">
+                            <a href="#">
+                                <img src="./img/sec5_img02.png" alt="이미지">
+                                <figcaption class="sec5_img_texts">
+                                    <p class="sec5_img_titText">보도기사</p>
+                                    <p class="sec5_img_topText">현대건설, KT와 ‘스마트 모빌리티’ 사업...</p>
+                                    <p class="sec5_img_bottomText">“현대건설은 14일, KT와 서울 종로구 현대빌딩에서 ‘스마트 모빌리티 사업 협력을 위한 업무협약(M....””</p>
+                                    <p class="sec5_img_left">20.11.02</p>
+                                    <p class="sec5_img_right">2631</p>
+                                    <span class="sec5_img_icon material-icons">visibility</span> 
+                                </figcaption>
+                            </a>
+                        </figure>
+                        <figure class="item">
+                            <a href="#">
+                                <img src="./img/sec5_img03.png" alt="이미지">
+                                <figcaption class="sec5_img_texts">
+                                    <p class="sec5_img_titText">보도기사</p>
+                                    <p class="sec5_img_topText">현대건설, 2019 도시정비사업 수주 1위</p>
+                                    <p class="sec5_img_bottomText">“현대건설이 지난 24일(土) 부산 감천2구역 재개  사업을 수주하며 올 한해 도시정비사업 수주액 2조....”</p>
+                                    <p class="sec5_img_left">20.10.10</p>
+                                    <p class="sec5_img_right">3256</p>
+                                    <span class="sec5_img_icon material-icons">visibility</span> 
+                                </figcaption>
+                            </a>
+                        </figure>
+                        <figure class="item">
+                            <a href="#">
+                                <img src="./img/sec5_img01.png" alt="이미지">
+                                <figcaption class="sec5_img_texts">
+                                    <p class="sec5_img_titText">보도기사</p>
+                                    <p class="sec5_img_topText">현대건설, 지하주차장 내 건식세차공....</p>
+                                    <p class="sec5_img_bottomText">“현대건설이 단지 내 지하주차장에 건식 세차공간 ‘H 오토존’을 도입한다. 고객들은 스마트폰에 설치....”</p>
+                                    <p class="sec5_img_left">20.11.30</p>
+                                    <p class="sec5_img_right">1276</p>
+                                    <span class="sec5_img_icon material-icons">visibility</span> 
+                                </figcaption>
+                            </a>
+                        </figure>
+                        <figure class="item">
+                            <a href="#">
+                                <img src="./img/sec5_img02.png" alt="이미지">
+                                <figcaption class="sec5_img_texts">
+                                    <p class="sec5_img_titText">보도기사</p>
+                                    <p class="sec5_img_topText">현대건설, KT와 ‘스마트 모빌리티’ 사업...</p>
+                                    <p class="sec5_img_bottomText">“현대건설은 14일, KT와 서울 종로구 현대빌딩에서 ‘스마트 모빌리티 사업 협력을 위한 업무협약(M....””</p>
+                                    <p class="sec5_img_left">20.11.02</p>
+                                    <p class="sec5_img_right">2631</p>
+                                    <span class="sec5_img_icon material-icons">visibility</span> 
+                                </figcaption>
+                            </a>
+                        </figure>
+                        <figure class="item">
+                            <a href="#">
+                                <img src="./img/sec5_img03.png" alt="이미지">
+                                <figcaption class="sec5_img_texts">
+                                    <p class="sec5_img_titText">보도기사</p>
+                                    <p class="sec5_img_topText">현대건설, 2019 도시정비사업 수주 1위</p>
+                                    <p class="sec5_img_bottomText">“현대건설이 지난 24일(土) 부산 감천2구역 재개  사업을 수주하며 올 한해 도시정비사업 수주액 2조....”</p>
+                                    <p class="sec5_img_left">20.10.10</p>
+                                    <p class="sec5_img_right">3256</p>
+                                    <span class="sec5_img_icon material-icons">visibility</span> 
+                                </figcaption>
+                            </a>
+                        </figure>
+                        <figure class="item">
+                            <a href="#">
+                                <img src="./img/sec5_img01.png" alt="이미지">
+                                <figcaption class="sec5_img_texts">
+                                    <p class="sec5_img_titText">보도기사</p>
+                                    <p class="sec5_img_topText">현대건설, 지하주차장 내 건식세차공....</p>
+                                    <p class="sec5_img_bottomText">“현대건설이 단지 내 지하주차장에 건식 세차공간 ‘H 오토존’을 도입한다. 고객들은 스마트폰에 설치....”</p>
+                                    <p class="sec5_img_left">20.11.30</p>
+                                    <p class="sec5_img_right">1276</p>
+                                    <span class="sec5_img_icon material-icons">visibility</span> 
+                                </figcaption>
+                            </a>
+                        </figure>
+                        <figure class="item">
+                            <a href="#">
+                                <img src="./img/sec5_img02.png" alt="이미지">
+                                <figcaption class="sec5_img_texts">
+                                    <p class="sec5_img_titText">보도기사</p>
+                                    <p class="sec5_img_topText">현대건설, KT와 ‘스마트 모빌리티’ 사업...</p>
+                                    <p class="sec5_img_bottomText">“현대건설은 14일, KT와 서울 종로구 현대빌딩에서 ‘스마트 모빌리티 사업 협력을 위한 업무협약(M....””</p>
+                                    <p class="sec5_img_left">20.11.02</p>
+                                    <p class="sec5_img_right">2631</p>
+                                    <span class="sec5_img_icon material-icons">visibility</span> 
+                                </figcaption>
+                            </a>
+                        </figure>
+                        <figure class="item">
+                            <a href="#">
+                                <img src="./img/sec5_img03.png" alt="이미지">
+                                <figcaption class="sec5_img_texts">
+                                    <p class="sec5_img_titText">보도기사</p>
+                                    <p class="sec5_img_topText">현대건설, 2019 도시정비사업 수주 1위</p>
+                                    <p class="sec5_img_bottomText">“현대건설이 지난 24일(土) 부산 감천2구역 재개  사업을 수주하며 올 한해 도시정비사업 수주액 2조....”</p>
+                                    <p class="sec5_img_left">20.10.10</p>
+                                    <p class="sec5_img_right">3256</p>
+                                    <span class="sec5_img_icon material-icons">visibility</span> 
+                                </figcaption>
+                            </a>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </div>       
+        
+        <!--==================== sec6 ====================-->
+        <div id="section6">
+            <div class="sec6">
+                <h2 class="ir_su">섹션6</h2>
+                <div class="sec6_bg">
+                    <div class="sec6_bg_txts">
+                        <p class="sec6_bg_tit_text">현대건설人</p>
+                        <p class="sec6_bg_top_text">현대건설을 만들어나가는 사람들의 뜨거운 이야기가 시작됩니다</p>
+                        <p class="sec6_bg_sub_text">더 넓은 미래를 향한 꿈의 도전,<br>현대건설이 여러분의 꿈을 함께 이루어 드립니다.</p>
+                        <a href="#" class="sec6_txt_btns">
+                            <p class="">자세히보기
+                            <span class="material-icons">
+                            arrow_forward</span></p>
+                        </a>
+                    </div>
+                </div>
+                <div class="sec6_bottom_box_wrap">
+                    <a href="#" class="sec6_bottom_box">
+                        <div class="box_wrap">
+                            <span class="box_num">D-2</span>
+                            <span class="box_txt">경력</span>
+                            <div class="box_tit">2020년 현대건설 모바일 개발/기획 분야 경력직 채용</div>
+                            <div class="box_line"></div>
+                            <div class="box_sub_txt">모집기간</div>
+                            <div class="box_sub_num">20.12.01 ~ 20.12.15</div>
+                        </div>    
+                    </a>
+                    <a href="#" class="sec6_bottom_box">
+                        <div class="box_wrap">
+                            <span class="box_num">D-2</span>
+                            <span class="box_txt">경력</span>
+                            <div class="box_tit">2020년 현대건설 모바일 개발/기획 분야 경력직 채용</div>
+                            <div class="box_line"></div>
+                            <div class="box_sub_txt">모집기간</div>
+                            <div class="box_sub_num">20.12.01 ~ 20.12.15</div>
+                        </div>    
+                    </a>
+                    <a href="#" class="sec6_bottom_box">
+                        <div class="box_wrap">
+                            <span class="box_num">D-2</span>
+                            <span class="box_txt">경력</span>
+                            <div class="box_tit">2020년 현대건설 모바일 개발/기획 분야 경력직 채용</div>
+                            <div class="box_line"></div>
+                            <div class="box_sub_txt">모집기간</div>
+                            <div class="box_sub_num">20.12.01 ~ 20.12.15</div>
+                        </div>    
+                    </a>
+                </div>
+            </div>
+        </div>  
+        
+        <!--==================== sec7 ====================-->
+        <div id="section7">
+            <div class="sec7">
+                <h2 class="ir_su">섹션7</h2>
+                <div class="sec7_bg">
+                    <div class="bg_image_content">
+                        <div class="bg_image_left">
+                            <h3><span>사회공헌소식</span></h3>
+                            <a href="#" class="right_btn">+</a>
+                            <ul class="text">
+                                <li><a href="">현대건설, 「2019 서울시 사회공헌 대상」 등 3개 수상</a></li>
+                                <li><a href="">힐스테이트 꿈키움 멘토링 봉사단 4기 수료식</a></li>
+                                <li><a href="">해외기술 봉사단 H-CONTECH 2기 - 기술교류 · 해외지원 · 문화..</a></li>
+                                <li><a href="">필리핀 코르도바 지역 아이들에게 태양광 발전설비와 랜턴 기증......</a></li>
+                                <li><a href="">해피무브 글로벌 청년봉사단’ 20기 봉사활동! “인도네시아 찔레...</a></li>
+                                <li><a href="">현대건설, 「2019 서울시 사회공헌 대상」 등 3개 수상</a></li>
+                            </ul>
+                            <ul class="number">
+                                <li><a href="">20.11.20</a></li>
+                                <li><a href="">20.11.24</a></li>
+                                <li><a href="">20.11.30</a></li>
+                                <li><a href="">20.12.10</a></li>
+                                <li><a href="">20.12.22</a></li>
+                                <li><a href="">20.12.25</a></li>
+                            </ul>
+                        </div>
+                        <div class="bg_image_right">
+                            <ul>
+                                <li>
+                                    <div class="texts">
+                                        <div class="tit_text">
+                                            <strong>CEO </strong><span>인사말</span>
+                                        </div>
+                                        <em class="sub_text">사람과 문화와 땅을 연결하는 새로운 가치를 말합니다.</em>
+                                        <div class="btn">
+                                            <a href="#">VIEW</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="texts">
+                                        <div class="tit_text">
+                                            <strong>찾아</strong><span>오시는길</span>
+                                        </div>
+                                        <em class="sub_text">현대건설 본사 및 지사 위치를 안내해 드립니다.</em>
+                                        <div class="btn">
+                                            <a href="#">VIEW</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="texts">
+                                        <div class="tit_text">
+                                            <strong>자주묻는</strong><span>질문</span>
+                                        </div>
+                                        <em class="sub_text">투자자 여러분들의 질문에 답변 드립니다.</em>
+                                        <div class="btn">
+                                            <a href="./FAQ.html">VIEW</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="texts">
+                                        <div class="tit_text">
+                                            <strong>IR </strong><span>자료실</span>
+                                        </div>
+                                        <em class="sub_text">사업보고서 및 연간 리포트를 열람하실 수 있습니다.</em>
+                                        <div class="btn">
+                                            <a href="#">VIEW</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--==================== 푸터 ====================-->
+        <footer id="footer">
+            <div class="footer_mobile">
+                <div class="footer_mobile_logo">
+                    <img src="./img/footer_img.png" alt="로고">
+                </div>
+                <ul class="utill01">
+                    <li><a href="#">개인정보처리방침</a></li>
+                    <li><a href="#">이메일 무단 수집거부</a></li>
+                    <li><a href="#">찾아오시는 길</a></li>
+                </ul>
+                <p class="address_mobile">03058 서울시 종로구 율곡로 75 현대빌딩 <br>사업자등록번호 101-81-16293 <br>Tel  1577-7755 <br></p>
+                <p class="copyright">© HYUNDAI E&C ALL RIGHTS RESERVED.</p>
+            </div>
+            <div class="footer_desktop">
+                <div class="footer_line">
+                    <ul class="utill02">
+                        <li><a href="#">개인정보처리방침</a></li>
+                        <li><a href="#">이메일 무단 수집거부</a></li>
+                        <li><a href="#">찾아오시는 길</a></li>
+                    </ul>
+                </div>
+                <div class="footer_bottom">
+                    <div class="footer_desktop_logo">
+                        <img src="./img/hdec_logo.png" alt="현대건설 로고 이미지">
+                    </div>
+                    <p class="address_desk">현대건설<br>03058 서울시 종로구 율곡로 75 현대빌딩 &nbsp; 사업자등록번호 101-81-16293 &nbsp; Tel  1577-7755 <br>© HYUNDAI E&C ALL RIGHTS RESERVED.</p>
+                    <div class="search">
+                        <div class="search_box">
+                            <select>
+                                <option>계열사 사이트</option>
+                                <option>계열사 사이트</option>
+                                <option>계열사 사이트</option>
+                            </select>
+                            <span class="search_drop">
+                                <span class="material-icons">expand_more</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+	</body>
+</html>
